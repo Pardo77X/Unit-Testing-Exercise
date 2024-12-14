@@ -16,9 +16,13 @@ public class UserService {
         users.add(new User(2L, "Bob", "bob@example.com"));
     }
 
-    public List<User> getAllUsers() { return users; }
+    public List<User> getAllUsers() {
+        return users;
+    }
 
-    public Optional<User> getUser ById(Long id) {
-        return users.stream().filter(user -> user.getId().equals(id)).findFirst();
+    public Optional<User> getUserById(Long id) { // Fixed method name
+        return users.stream()
+                    .filter(user -> user.getId().equals(id))
+                    .findFirst();
     }
 }

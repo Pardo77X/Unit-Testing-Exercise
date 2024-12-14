@@ -43,9 +43,9 @@ public class UserControllerTest {
     }
 
     @Test
-    public void testGetUser ById_UserExists() throws Exception {
+    public void testGetUserById_UserExists() throws Exception {
         User user = new User(1L, "Alice", "alice@example.com");
-        given(userService.getUser ById(1L)).willReturn(Optional.of(user));
+        given(userService.getUserById(1L)).willReturn(Optional.of(user));
 
         mockMvc.perform(get("/users/1"))
                 .andExpect(status().isOk())
@@ -53,8 +53,8 @@ public class UserControllerTest {
     }
 
     @Test
-    public void testGetUser ById_UserNotFound() throws Exception {
-        given(userService.getUser ById(1L)).willReturn(Optional.empty());
+    public void testGetUserById_UserNotFound() throws Exception {
+        given(userService.getUserById(1L)).willReturn(Optional.empty());
 
         mockMvc.perform(get("/users/1"))
                 .andExpect(status().isNotFound());
